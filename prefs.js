@@ -50,25 +50,25 @@ export default class CustomHotCornersExtended extends ExtensionPreferences {
         this._pageList = [
             {
                 name: 'keyboard',
-                title: _('Keyboard'),
+                title: _('Klavye'),
                 iconName: 'input-keyboard-symbolic',
                 pageClass: KeyboardPage.KeyboardPage,
             },
             {
                 name: 'menus',
-                title: _('Custom Menus'),
+                title: _('Özel Menüler'),
                 iconName: 'open-menu-symbolic',
                 pageClass: CustomMenusPage.CustomMenusPage,
             },
             {
                 name: 'options',
-                title: _('Options'),
+                title: _('Ayarlar'),
                 iconName: 'preferences-other-symbolic',
                 pageClass: Adw ? OptionsPage.MscOptionsPageAdw : OptionsPage.MscOptionsPageLegacy,
             },
             {
                 name: 'about',
-                title: _('About'),
+                title: _('Hakkında'),
                 iconName: 'preferences-system-details-symbolic',
                 pageClass: Adw ? AboutPage.AboutPageAdw : AboutPage.AboutPageLegacy,
             },
