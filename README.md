@@ -1,79 +1,78 @@
 # Custom Hot Corners - Extended
 
-A GNOME Shell Extension which allows you to control and navigate Gnome Shell environment through the corners and edges of your monitors. But not just that. It also adds many unique actions with custom keyboard shortcuts, so even if you don't like hot corners, this extension may improve your workflow.
+GNOME Shell ortamını, monitörlerinizin köşeleri ve kenarları aracılığıyla kontrol etmenizi ve gezinmenizi sağlayan bir GNOME Shell Uzantısı. Ama sadece bu kadarla sınırlı değil. Ayrıca, özelleştirilmiş klavye kısayollarıyla birçok benzersiz eylem ekler, bu yüzden sıcak köşeleri sevmeseniz bile bu uzantı iş akışınızı iyileştirebilir.
 
-This extension is based on the original `Custom Hot Corners` extension, but not much of the original code remains.
+Bu uzantı, orijinal Custom Hot Corners uzantısına dayanmaktadır, ancak orijinal koddan çok az bir şey kalmıştır.
 
 [<img alt="" height="100" src="https://raw.githubusercontent.com/andyholmes/gnome-shell-extensions-badge/master/get-it-on-ego.svg?sanitize=true">](https://extensions.gnome.org/extension/4167/custom-hot-corners-extended/)
 
 
-## Features:
-- Gnome 3.36 - 47 compatibility
-- Hot corners with adjustable barrier sizes, both vertical and horizontal independently and usable as hot edges
-- Mouse buttons and a scroll wheel can be used as action triggers
-- Each trigger can be set to work only if *Ctrl* key is pressed
-- Each direction of a scroll wheel rotation is configurable independently
-- Each trigger can activate one of many actions including command execution, workspace and window navigation, window control, power manager actions, sound volume control, MPRIS player control, color filters (for windows and global), accessibility features and more.
-- Preferences window provides an app chooser dialog for *Run Preset Command/Activate App ...* action configuration. You can choose and modify exec command of chosen application, or app ID which will work the same as when you click an app icon in the Dash or App Grid.
-- Each corner's area reactive to mouse clicks and scrolls can be extended both horizontally and/or vertically to cover most length of the monitor's edges. If the adjacent corner is not set to expand in related direction, the corner can be expanded to 7/8 of the monitor's width/height. If two adjacent corners are set to expand to each other's direction, then it is 1/2 of the length for each. You can see the result of expansion settings using the *Make active corners/edges visible* option.
-- Fallback hot corner triggers as option - can be used on virtualized systems with mouse pointer integration where pressure barriers do not work.
-- Multi-monitor support. If you open preferences window, each monitor shows its index in the top left corner.
-- `Monitor 1` settings are always applied on the primary monitor, the rest keep the order as set by GNOME.
-- You can set global keyboard shortcuts for any actions on the menu, except for those available natively in GNOME Settings.
-- You can create up to 4 Custom Menus with your own selection of actions and use them as a single action.
+## Özellikler:
+- Gnome 3.36 - 47 uyumluluğu
+- Ayarlanabilir bariyer boyutlarına sahip sıcak köşeler, hem dikey hem de yatay olarak bağımsız biçimde ayarlanabilir ve sıcak kenarlar olarak kullanılabilir
+- Fare düğmeleri ve kaydırma tekerleği tetikleyici olarak kullanılabilir
+- Her tetikleyici yalnızca *Ctrl* tuşuna basıldığında çalışacak şekilde ayarlanabilir
+- Kaydırma tekerleğinin her yönü bağımsız olarak yapılandırılabilir
+- Her tetikleyici, komut çalıştırma, çalışma alanı ve pencere gezinme, pencere kontrolü, güç yönetimi eylemleri, ses seviyesi kontrolü, MPRIS oynatıcı kontrolü, renk filtreleri (pencere bazlı ve genel), erişilebilirlik özellikleri ve daha fazlası gibi birçok eylemi tetikleyebilir
+- Tercihler penceresi, *Ön Ayarlı Komutu Çalıştır/Uygulamayı Etkinleştir ...* eylemi yapılandırması için bir uygulama seçici iletişim penceresi sunar. Seçilen uygulamanın çalıştırma komutunu veya Dash ya da Uygulama Izgarası'ndaki simgesine tıkladığınızda olduğu gibi çalışan uygulama kimliğini seçip düzenleyebilirsiniz
+- Her köşenin fare tıklamaları ve kaydırma hareketlerine duyarlı alanı hem yatay hem de dikey olarak genişletilebilir ve böylece monitör kenarlarının büyük bir kısmını kaplayabilir. Eğer bitişik köşe ilgili yönde genişletilecek şekilde ayarlanmamışsa, köşe monitörün genişliğinin/yüksekliğinin 7/8'ine kadar genişletilebilir. Eğer iki bitişik köşe birbirinin yönüne doğru genişleyecek şekilde ayarlanmışsa, her biri için bu uzunluk 1/2 olur. Genişletme ayarlarının sonucunu *Etkin köşeleri/kenarları görünür yap* seçeneğini kullanarak görebilirsiniz
+- Yedek sıcak köşe tetikleyicileri (opsiyonel) - fare imleci entegrasyonunun olduğu sanallaştırılmış sistemlerde, basınç bariyerlerinin çalışmadığı durumlarda kullanılabilir
+- Çoklu monitör desteği. Tercihler penceresini açtığınızda, her monitörün sol üst köşesinde indeks numarası gösterilir
+- `Monitör 1` ayarları her zaman birincil monitöre uygulanır, diğerleri GNOME tarafından belirlenen sıraya göre devam eder
+- GNOME Ayarları'nda yerleşik olarak bulunmayan menüdeki herhangi bir eylem için küresel klavye kısayolları ayarlayabilirsiniz
+- Kendi seçtiğiniz eylemlerle en fazla 4 Özel Menü oluşturabilir ve bunları tek bir eylem olarak kullanabilirsiniz
 
 
-## Video references:
+## Video referansları:
 
-[![CHC-E on Linux Tex channel](readme-src/CHC-E-Linux-Tex.png)](https://www.youtube.com/watch?v=ayvE_qw0YLk&t=613s)
+[![CHC-E Linux Tex kanalında](readme-src/CHC-E-Linux-Tex.png)](https://www.youtube.com/watch?v=ayvE_qw0YLk&t=613s)
 
-[![CHC-E on The Linux Experiment channel](readme-src/CHC-E-The-Linux-Experiment.png)](https://www.youtube.com/watch?v=KtjYPMCvQ7Y&t=519s)
+[![CHC-E The Linux Experiment kanalında](readme-src/CHC-E-The-Linux-Experiment.png)](https://www.youtube.com/watch?v=KtjYPMCvQ7Y&t=519s)
 
 
-## Changelog
+## Değişiklik Günlüğü
 
 [CHANGELOG.md](CHANGELOG.md)
 
-## DND Window Thumbnails
+## Sürükle ve Bırak (DND) Pencere Küçük Görselleri
 
-Window thumbnails are scaled-down window clones that can be used to monitor windows not currently visible on the screen. Default position for the thumbnail is bottom right corner of the current monitor. You can create as many clones as you want and place them anywhere on the screen. Each thumbnail can be independently resized, you can adjust its opacity, even change its source window. When the thumbnail's source window close, thumbnail is removed too.
+Pencere küçük görselleri, ekranda şu anda görünmeyen pencereleri izlemek için kullanılabilen küçültülmüş pencere klonlarıdır. Küçük görselin varsayılan konumu, mevcut monitörün sağ alt köşesidir. İstediğiniz kadar klon oluşturabilir ve ekranın herhangi bir yerine yerleştirebilirsiniz. Her küçük görsel bağımsız olarak yeniden boyutlandırılabilir, saydamlığı ayarlanabilir ve hatta kaynak penceresi değiştirilebilir. Küçük görselin kaynak penceresi kapatıldığında, küçük görsel de kaldırılır.
 
-| Control | Action |
-| ------- | ------ |
-| Double click          | activate source window |
-| Primary cLick         | toggle scroll wheel function (resize / source) |
-| Scroll wheel          | resize or switch source window |
-| Ctrl + Scroll wheel   | switch source window or resize |
-| Secondary click       | show full-size window preview and toggle sowing preview on mouse hover |
-| Shift + Scroll wheel  | change thumbnail opacity |
+| Kontrol | Eylem |
+| ------- | ----- |
+| Çift tıklama         | kaynak pencereyi etkinleştir |
+| Birincil tıklama     | kaydırma tekerleği işlevini değiştir (yeniden boyutlandırma / kaynak değiştirme) |
+| Kaydırma tekerleği   | yeniden boyutlandır veya kaynak pencereyi değiştir |
+| Ctrl + Kaydırma tekerleği | kaynak pencereyi değiştir veya yeniden boyutlandır |
+| İkincil tıklama      | tam boyutlu pencere önizlemesini göster ve fareyle üzerine gelindiğinde gösterimi aç/kapat |
+| Shift + Kaydırma tekerleği | küçük görsel saydamlığını değiştir |
+
+![Eklenti yapılandırma penceresi](screenshot.png)
 
 
-![Extension configuration window](screenshot.png)
+## Kurulum
 
+Bu eklentiyi birkaç farklı yolla kurabilirsiniz.
 
-## Installation
+### extensions.gnome.org üzerinden kurulum
 
-You can install this extension in several ways.
+Custom Hot Corners - Extended eklentisini kurmanın en kolay yolu: [extensions.gnome.org](https://extensions.gnome.org/extension/4167/custom-hot-corners-extended/) adresine gidin ve anahtarı açın. Bu yöntemle kurulum yaptığınızda, gelecekte otomatik güncellemeler de alırsınız.
 
-### Installation from extensions.gnome.org
+### En son Github sürümünden kurulum
 
-The easiest way to install Custom Hot Corners - Extended: go to [extensions.gnome.org](https://extensions.gnome.org/extension/4167/custom-hot-corners-extended/) and toggle the switch. This installation also gives you automatic updates in the future.
-
-### Installation from the latest Github release
-
-Download the latest release archive using following command:
+Aşağıdaki komutla en son sürüm arşivini indirin:
 
     wget https://github.com/G-dH/custom-hot-corners-extended/releases/latest/download/custom-hot-corners-extended@G-dH.github.com.zip
 
-Install the extension (`--force` switch needs to be used only if some version of the extension is already installed):
+Eklentiyi kurun (`--force` seçeneği yalnızca eklentinin bir sürümü zaten kuruluysa gereklidir):
 
     gnome-extensions install --force custom-hot-corners-extended@G-dH.github.com.zip
 
-### Installation from source
+### Kaynak koddan kurulum
 
-If you want to test the latest version from the Github repository (which is usually working well enough as it's the code I'm currently using on my own system), you can use following guide.
+Github deposundaki en güncel sürümü (genellikle yeterince stabil çalışır çünkü kendi sistemimde de bu kodu kullanıyorum) test etmek isterseniz, aşağıdaki kılavuzu takip edebilirsiniz.
 
-Make sure you have installed packages providing following commands: `glib-compile-resources`, `glib-compile-schemas`, `git`
+Şu komutları sağlayan paketlerin sisteminizde kurulu olduğundan emin olun: `glib-compile-resources`, `glib-compile-schemas`, `git`
 
 ##### GNOME 45+
 
@@ -81,51 +80,50 @@ Make sure you have installed packages providing following commands: `glib-compil
     cd custom-hot-corners-extended
     make install
 
-##### GMONE 3.36 - 44
+##### GNOME 3.36 - 44
 
     git https://github.com/erogluyusuf/custom-hot-corners-extended.git
     cd custom-hot-corners-extended
     git checkout gnome-3.36-44
     make install
 
-### Installation from AUR on Arch based distributions
 
-*Custom Hot Corners - Extended* has also AUR repository maintainer (but I know nothing more about it):
+### Arch tabanlı dağıtımlarda AUR üzerinden kurulum
+
+*Custom Hot Corners - Extended* için bir AUR deposu da mevcut (ama bununla ilgili başka bir bilgim yok):  
 [https://aur.archlinux.org/packages/gnome-shell-extension-custom-hot-corners-extended](https://aur.archlinux.org/packages/gnome-shell-extension-custom-hot-corners-extended)
 
-## Enable installed extension
+## Kurulu eklentiyi etkinleştirme
 
-After installation you need to enable the extension. Only direct installation from extension.gnome.org loads the code and enables the extension immediately.
+Kurulumdan sonra eklentiyi etkinleştirmeniz gerekir. Yalnızca extensions.gnome.org üzerinden yapılan doğrudan kurulum, kodu yükleyip eklentiyi hemen etkinleştirir.
 
-- First restart GNOME Shell (`ALt` + `F2`, `r`, `Enter`, or log out/log in if you use Wayland)
-- Now you should see the new extension in *Extensions* (or *GNOME Tweak Tool* on older systems) application (reopen the app if needed to load new data), where you can enable it and access its Preferences/Settings.
-- You can also enable the extension from the command line:
+- Önce GNOME Shell’i yeniden başlatın (`Alt` + `F2`, `r`, `Enter`) veya Wayland kullanıyorsanız oturumu kapatıp tekrar açın
+- Daha sonra *Eklentiler* uygulamasında (veya eski sistemlerde *GNOME Tweak Tool* içinde) yeni eklentiyi göreceksiniz (yeniden açmanız gerekebilir). Buradan eklentiyi etkinleştirebilir ve Tercihler/Ayarlar kısmına erişebilirsiniz.
+- Eklentiyi komut satırından da etkinleştirebilirsiniz:
 
     gnome-extensions enable custom-hot-corners-extended@G-dH.github.com
 
+## Katkı
 
-## Contribution
+Katkılar memnuniyetle karşılanır ve tüm önerilere olabildiğince hızlı yanıt vermeye çalışacağım.
 
-Contributions are welcome and I will try my best to answer quickly to all suggestions.
+### Çeviriler
 
-### Translations
-
-You can contribute with translation to your language, source `.pot` file can be generated using
+Kendi dilinizde çeviriyle katkıda bulunabilirsiniz. Kaynak `.pot` dosyasını oluşturmak için, klonladığınız git deposu içinde şu komutu kullanabilirsiniz:
 
     make pot
 
-command within the cloned git repository, then you can use `Poedit` application for translation and export to `.po` file.
+Daha sonra çeviri yapmak için `Poedit` uygulamasını kullanabilir ve `.po` dosyasına aktarabilirsiniz.
 
-### Buy me a coffee
+### Bana bir kahve ısmarla
 
-If you like my work and want to keep me motivated, you can also buy me a coffee:
+Eğer yaptığım işi beğeniyorsanız ve beni motive etmek isterseniz, bana bir kahve ısmarlayabilirsiniz:  
 [buymeacoffee.com/georgdh](https://buymeacoffee.com/georgdh)
 
-## Credits
+## Katkıda Bulunanlar
 
-During development of this extension I was inspired by many extensions and other developers, I'll try to name the main contributors to my code:
-- [Simon Shneegans](https://schneegans.github.io/) - amazing developer with skill and style who provided me new Make files for my extensions and a lot of inspiration.
-- [True Color Invert](https://github.com/jackkenney/gnome-true-color-invert) - useful extension with confusing name, which brought me to shader effects and whose modified code I use for 'Invert Lightness' action and other color filters.
-- [GS Connect](https://github.com/GSConnect/gnome-shell-extension-gsconnect/wiki) - CHC-E relies on the keybinding module copied from this great extension.
-- And, of course, the original 'Custom Hot Corners' extension, which I forked and upon which this extension was built.
-
+Bu eklentiyi geliştirirken birçok eklenti ve geliştiriciden ilham aldım, koduma katkı sağlayan başlıca kişileri belirtmeye çalışacağım:
+- [Simon Shneegans](https://schneegans.github.io/) - harika bir geliştirici, eklentilerim için yeni Make dosyaları sağlayan ve bana büyük ilham veren biri.
+- [True Color Invert](https://github.com/jackkenney/gnome-true-color-invert) - kafa karıştırıcı ismine rağmen çok faydalı bir eklenti. Shader efektleriyle tanışmamı sağladı ve 'Parlaklığı Tersine Çevir' eyleminde ve diğer renk filtrelerinde bu eklentinin değiştirilmiş kodunu kullanıyorum.
+- [GS Connect](https://github.com/GSConnect/gnome-shell-extension-gsconnect/wiki) - CHC-E, bu mükemmel eklentiden kopyalanan kısayol tuşları modülüne dayanıyor.
+- Ve tabii ki, bu eklentinin temeli olan orijinal 'Custom Hot Corners' eklentisi.
