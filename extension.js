@@ -2,7 +2,7 @@
  * Custom Hot Corners - Extended
  *
  * @author     GdH <G-dH@github.com>
- * @copyright  2021-2025
+ * @copyright  2021-2024
  * @license    GPL-3.0
  */
 
@@ -53,7 +53,6 @@ export default class CustomHotCornersExtended extends Extension {
         this._extensionEnabled     = false;
         this._watch                = {};
         this._listTriggers           = Settings.listTriggers();
-        this._disableDisplayUnredirect = false;
     }
 
     enable() {
@@ -114,15 +113,9 @@ export default class CustomHotCornersExtended extends Extension {
             this._mscOptions = null;
         }
 
-        // effects should survive screen lock
-        let fullDisable = !(Main.sessionMode.isLocked && Utils.extensionEnabled());
-        if (fullDisable) {
-            if (this.actionTrigger)
-                this.actionTrigger.clean(true);
-            this.actionTrigger = null;
-        } else if (this.actionTrigger) {
-            this.actionTrigger.clean(false);
-        }
+        if (this.actionTrigger)
+            this.actionTrigger.clean(true);
+        this.actionTrigger = null;
 
         this._extensionEnabled = false;
 
@@ -145,11 +138,17 @@ export default class CustomHotCornersExtended extends Extension {
         Settings.cleanGlobals();
         ActionList.cleanGlobals();
 
-        this._setDisplayUnredirection(false);
+        if (this._displayRedirectionDisabled) {
+            if (Meta.disable_unredirect_for_display)
+                Meta.disable_unredirect_for_display(global.display);
+            else // since GS 48
+                global.compositor.disable_unredirect();
+            this._displayRedirectionDisabled = false;
+        }
 
         chce = null;
 
-        console.log(`${this.metadata.name}: ${fullDisable ? 'disabled' : 'suspended'}`);
+        console.log(`${this.metadata.name}: disabled`);
     }
 
     _replace_updateHotCornersFunc() {
@@ -248,10 +247,8 @@ export default class CustomHotCornersExtended extends Extension {
 
         // corners can be temporarily disabled from panel menu
         const cornersDisabled = !chce._mscOptions.get('hotCornersEnabled', true);
-        if (cornersDisabled) {
-            chce._setDisplayUnredirection(false);
+        if (cornersDisabled)
             return;
-        }
 
         let primaryIndex = Main.layoutManager.primaryIndex;
         // avoid creating new corners if this extension is disabled...
@@ -290,22 +287,12 @@ export default class CustomHotCornersExtended extends Extension {
         // If any corner action should be available in fullscreen mode,
         // disable bypassing the compositor when the display switches to fullscreen mode
         // and keep track of its state - each disable has to be enabled, it works as a stack
-        chce._setDisplayUnredirection(chce._fullscreenRequired);
-    }
-
-    _setDisplayUnredirection(disable) {
-        if (disable && !chce._disableDisplayUnredirect) {
+        if (chce._fullscreenRequired && !chce._displayRedirectionDisabled) {
             if (Meta.disable_unredirect_for_display)
                 Meta.disable_unredirect_for_display(global.display);
-            else // since GS 48
+            else // new in GS 48
                 global.compositor.disable_unredirect();
-            chce._disableDisplayUnredirect = true;
-        } else if (!disable && chce._disableDisplayUnredirect) {
-            if (Meta.enable_unredirect_for_display)
-                Meta.enable_unredirect_for_display(global.display);
-            else // since GS 48
-                global.compositor.enable_unredirect();
-            chce._disableDisplayUnredirect = false;
+            chce._displayRedirectionDisabled = true;
         }
     }
 
@@ -344,7 +331,7 @@ export default class CustomHotCornersExtended extends Extension {
     _shouldExistHotCorner(corner) {
         let answer = false;
         for (let trigger of chce._listTriggers) {
-            const cornerActive = corner.get('action', trigger) !== 'disabled';
+            const cornerActive = corner.action[trigger] !== 'disabled';
             answer = answer || cornerActive;
             chce._fullscreenRequired = chce._fullscreenRequired || (cornerActive && corner.get('fullscreen', trigger));
         }
@@ -363,7 +350,7 @@ export default class CustomHotCornersExtended extends Extension {
                     if (Main.layoutManager._updateHotCorners !== this._updateHotCorners) {
                         Main.layoutManager._updateHotCorners = this._updateHotCorners;
                         this._updateHotCorners();
-                        log('_updateWatch: updateHotCorners function had to be updated because of external override');
+                        log('_updateWatch: external geçersiz kılma nedeniyle updateHotCorners fonksiyonu güncellenmek zorunda kaldı.');
                     }
 
                     let cornersChanged = false;
@@ -372,13 +359,13 @@ export default class CustomHotCornersExtended extends Extension {
                     });
                     if (cornersChanged) {
                         this._updateHotCorners();
-                        log(this.metadata.name, 'Hot Corners had to be updated because of external override');
+                        log(this.metadata.name, 'Köşe Tetikleyicileri, harici geçersiz kılma nedeniyle güncellenmek zorunda kaldı.');
                         return this._watch.active;
                     }
                     // some extensions (ArcMenu) can modify pressure barrier triggers, which normally just emits a triggered event
                     if (this._myCorners[1] && Main.layoutManager.hotCorners[0] && Main.layoutManager.hotCorners[0]._pressureBarrier._trigger !== this._myCorners[1]) {
                         this._updateHotCorners();
-                        log(this.metadata.name, 'Hot Corners had to be updated because of external override');
+                        log(this.metadata.name, 'Köşe Tetikleyicileri, harici geçersiz kılma nedeniyle güncellenmek zorunda kaldı.');
                     }
                     if (!this._watch.active) {
                         this._timeoutsCollector.splice(this._timeoutsCollector.indexOf(this._watch.timeout), 1);
@@ -397,3 +384,4 @@ export default class CustomHotCornersExtended extends Extension {
         this._myCorners[1] = Main.layoutManager.hotCorners[0] ? Main.layoutManager.hotCorners[0]._pressureBarrier._trigger : null;
     }
 }
+
