@@ -46,7 +46,7 @@ class ActionChooserDialog extends Gtk.Box {
         this._iconPath = Utils.getIconPath();
 
         this.dialog = new Gtk.Dialog({
-            title: _('Choose Action'),
+            title: _('Eylem Seçin'),
             transient_for: transitionWidget.get_root
                 ? transitionWidget.get_root()
                 : transitionWidget.get_toplevel(),
@@ -185,7 +185,7 @@ class ActionChooserDialog extends Gtk.Box {
             spacing: 4,
         });
         const expandButton = new Gtk.Button({
-            label: _('Expand all'),
+            label: _('Tümünü Genişlet'),
         });
         expandButton.connect('clicked', () => {
             this.treeView.expand_all();
@@ -193,7 +193,7 @@ class ActionChooserDialog extends Gtk.Box {
         });
 
         const collapseButton = new Gtk.Button({
-            label: _('Collapse all'),
+            label: _('Tümünü Daralt'),
         });
         collapseButton.connect('clicked', () => {
             this.treeView.collapse_all();

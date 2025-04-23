@@ -356,8 +356,8 @@ export function getSettings(schema, path) {
     if (!schemaObj) {
         // throw new Error(
         log(
-            `Schema ${schema} could not be found for extension ${
-                Me.metadata.uuid}. Please check your installation.`
+            `${schema} şeması, uzantı için bulunamadı. ${
+                Me.metadata.uuid}. Lütfen kurulumunuzu kontrol edin.`
         );
         return null;
     }

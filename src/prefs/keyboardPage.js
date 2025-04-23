@@ -58,12 +58,12 @@ class KeyboardPage extends TreeViewPage.TreeViewPage {
         });
 
         this._updateTitle();
-        this.lbl.set_tooltip_text(`${_('Click on the Shortcut Key cell to set new shortcut.')}\n${
-            _('Press Backspace key instead of the new shortcut to disable shortcut.')}\n${
-            _('Warning: Some system shortcuts can NOT be overriden here.')}\n${
-            _('Warning: Shortcuts already used in this extension will be ignored.')}`);
-        this.resetButton.set_label(_('Disable all'));
-        this.resetButton.set_tooltip_text(_('Remove all keyboard shortcuts'));
+        this.lbl.set_tooltip_text(`${_('Yeni kısayol belirlemek için Kısayol Tuşu hücresine tıklayın.')}\n${
+            _('Yeni kısayolu devre dışı bırakmak için Backspace tuşuna basın.')}\n${
+            _('Uyarı: Bazı sistem kısayolları burada geçersiz kılınamaz.')}\n${
+            _('Uyarı: Bu uzantıda zaten kullanılan kısayollar yok sayılacaktır.')}`);
+        this.resetButton.set_label(_('Tümünü devre dışı bırak'));
+        this.resetButton.set_tooltip_text(_('Tüm klavye kısayollarını kaldır'));
         this.resetButton.connect('clicked', () => {
             this._resetShortcuts();
         });
@@ -116,7 +116,7 @@ class KeyboardPage extends TreeViewPage.TreeViewPage {
             const value = Gtk.accelerator_name(key, mods);
             const [succ, iter] = this.model.get_iter_from_string(path);
             if (!succ)
-                throw new Error('Error updating keybinding');
+                throw new Error('Anahtarlama kısayolunu güncellerken hata oluştu');
             const name = this.model.get_value(iter, 0);
             // exclude group items and avoid duplicate accels
             // accels for group items now cannot be set, it was fixed
@@ -125,7 +125,7 @@ class KeyboardPage extends TreeViewPage.TreeViewPage {
                 this.keybindings[name] = value;
                 this._saveShortcuts(this.keybindings);
             } else {
-                log(`${Me.metadata.name} This keyboard shortcut is invalid or already in use!`);
+                log(`${Me.metadata.name} Bu klavye kısayolu geçersiz veya zaten kullanılıyor!`);
             }
             this._updateTitle();
         });
@@ -142,7 +142,7 @@ class KeyboardPage extends TreeViewPage.TreeViewPage {
         accelRender.connect('accel-cleared', (rend, path/* , key, mods*/) => {
             const [succ, iter] = this.model.get_iter_from_string(path);
             if (!succ)
-                throw new Error('Error clearing keybinding');
+                throw new Error('Klavye kısayolunu temizlerken hata oluştu!');
 
             this.model.set(iter, [2, 3], [0, 0]);
             const name = this.model.get_value(iter, 0);
@@ -165,7 +165,7 @@ class KeyboardPage extends TreeViewPage.TreeViewPage {
     }
 
     _updateTitle() {
-        this.lbl.set_markup(`${_bold(_('Keyboard Shortcuts'))}    (${_('active')}: ${Object.keys(this.keybindings).length})`);
+        this.lbl.set_markup(`${_bold(_('Klavye Kısayolları'))}    (${_('active')}: ${Object.keys(this.keybindings).length})`);
     }
 
     _loadShortcuts() {
@@ -226,7 +226,7 @@ class KeyboardPage extends TreeViewPage.TreeViewPage {
                 if (ap[0] && ap[1])
                     a = [ap[1], ap[0]];
                 else
-                    log(`[${Me.metadata.name}] Error: Gtk keybind conversion failed`);
+                    log(`[${Me.metadata.name}] Hata: Gtk tuş bağlama dönüşümü başarısız oldu!`);
             }
             if (!itemMeaning) {
                 iter1  = this.model.append(null);

@@ -42,23 +42,23 @@ function getOptionList(mscOptions) {
 
     optionsList.push(
         itemFactory.getRowWidget(
-            _('Global options'),
+            _('Global ayarlar'),
             null, null, null
         )
     );
 
     optionsList.push(
         itemFactory.getRowWidget(
-            _('Show Panel Menu'),
-            _('Menu in the main panel offers access to the settings and deactivate corner triggers if needed.'),
+            _('Panel Menüsünü Göster'),
+            _('Ana paneldeki menü, ayarlara erişim sağlar ve gerekirse köşe tetikleyicilerini devre dışı bırakmanıza olanak tanır.'),
             itemFactory.newSwitch(), 'enablePanelMenu'
         )
     );
 
     optionsList.push(
         itemFactory.getRowWidget(
-            _('Watch hot corners for external overrides'),
-            _('Update corners when something (usually other extensions) change them'),
+            _('Harici geçersiz kılmalar için köşeleri izleyin'),
+            _('Köşeler bir şeyler (genellikle diğer uzantılar) tarafından değiştirildiğinde güncelleştir.'),
             itemFactory.newSwitch(), 'watchCorners'
         )
     );
@@ -71,8 +71,8 @@ function getOptionList(mscOptions) {
 
     optionsList.push(
         itemFactory.getRowWidget(
-            _('Minimum delay between actions (ms)'),
-            _('Prevents accidental double-action. Ignored by volume control'),
+            _('Eylemler arasındaki minimum gecikme (ms)'),
+            _('Kazara çift eylemi engeller. Ses kontrolü tarafından göz ardı edilir.'),
             itemFactory.newSpinButton(actionDelayAdjustment),
             'actionEventDelay'
         )
@@ -80,8 +80,8 @@ function getOptionList(mscOptions) {
 
     optionsList.push(
         itemFactory.getRowWidget(
-            _('Show ripple animations'),
-            _('When you trigger an action, ripples are animated from the corresponding corner'),
+            _('Dalgalanma animasyonlarını göster'),
+            _('Bir eylemi tetiklediğinizde, dalgalar ilgili köşeden animasyonlu olarak yayılır.'),
             itemFactory.newSwitch(),
             'rippleAnimation'
         )
@@ -89,24 +89,24 @@ function getOptionList(mscOptions) {
 
     optionsList.push(
         itemFactory.getRowWidget(
-            _('Direct hot corner triggers require Shift'),
-            _('All hot corner triggers that are directly accessible (without Ctrl) require the Shift key pressed to be activated. This option is primarily meant as a temporary solution accessible also as an action using a keyboard shortcut or mouse trigger to avoid accidental activation of hot corners in specific situations such as playing full-screen games.'),
+            _('Doğrudan köşe tetikleyicileri için Shift tuşu gereklidir.'),
+            _('Ctrl tuşu olmadan doğrudan erişilebilen tüm köşe tetikleyicilerinin etkinleştirilmesi için Shift tuşunun basılı tutulması gerekir. Bu seçenek, özellikle tam ekran oyunları gibi durumlarda kazara köşe tetikleyicilerinin etkinleşmesini önlemek amacıyla, geçici bir çözüm olarak tasarlanmıştır ve aynı zamanda bir klavye kısayolu veya fare tetikleyicisi ile erişilebilir.'),
             itemFactory.newSwitch(), 'hotCornersRequireShift'
         )
     );
 
     optionsList.push(
         itemFactory.getRowWidget(
-            _('Mouse buttons trigger on press event'),
-            _('Trigger an action when you press the mouse button instead of when you release it.\nTriggering on release event is default because minimizes accidental triggering when dragging objects form areas close to the edge of the monitor (like unmaximize by dragging from the top panel or using scroll bars). Minor disadvantage is longer reaction time which is given by the delay between pressing and releasing the button.'),
+            _('Fare düğmeleri, basma olayı ile tetiklenir.'),
+            _('Fare düğmesine basıldığında, düğmeyi bıraktığınızda yerine bir eylemi tetiklersiniz. Serbest bırakma olayında tetikleme varsayılan olarak kullanılır çünkü monitör kenarına yakın alanlardan nesneleri sürüklerken kazara tetiklemeyi minimize eder (örneğin, üst panelden sürükleyerek pencereyi küçültme veya kaydırma çubuklarını kullanma). Küçük bir dezavantajı ise, düğmeye basma ve bırakma arasındaki gecikmeden kaynaklanan daha uzun bir tepki süresidir.'),
             itemFactory.newSwitch(), 'buttonsTriggerOnPress'
         )
     );
 
     optionsList.push(
         itemFactory.getRowWidget(
-            _('Use fallback hot corner triggers'),
-            _("If pressure barriers don't work, this option allows trigger the hot corner action by hovering the corner"),
+            _('Yedek köşe tetikleyicilerini kullan'),
+            _("Eğer basınç bariyerleri çalışmazsa, bu seçenek köşe üzerine fareyle gelerek köşe eylemini tetiklemeye olanak tanır."),
             itemFactory.newSwitch(),
             'barrierFallback'
         )
@@ -114,8 +114,8 @@ function getOptionList(mscOptions) {
 
     optionsList.push(
         itemFactory.getRowWidget(
-            _('Make active corners / edges visible'),
-            _('Shows which corners are active and their size/expansion settings. Pressure barriers are green, clickable areas are orange'),
+            _('Etkin köşeleri / kenarları görünür yap'),
+            _('Hangi köşelerin etkin olduğunu ve bunların boyut/genişletme ayarlarını gösterir. Basınç bariyerleri yeşil, tıklanabilir alanlar ise turuncudur.'),
             itemFactory.newSwitch(),
             'cornersVisible'
         )
@@ -131,8 +131,8 @@ function getOptionList(mscOptions) {
 
     optionsList.push(
         itemFactory.getRowWidget(
-            _('Wraparound'),
-            _('Whether the switcher should continue from the last window to the first and vice versa'),
+            _('Dönme (Wraparound)'),
+            _('Anahtarın, son pencereden ilk pencereye ve tersi yönde devam edip etmeyeceğini belirler.'),
             itemFactory.newSwitch(),
             'winSwitchWrap'
         )
@@ -140,8 +140,8 @@ function getOptionList(mscOptions) {
 
     optionsList.push(
         itemFactory.getRowWidget(
-            _('Stable sequence'),
-            _("By default windows are sorted by the MRU (Most Recently Used) AltTab list, which is given by time stamps that are updated each time the window is activated by the user. The stable sequence is given by the unique ID that each window gets when it's created."),
+            _('Kararlı sıralama'),
+            _("Varsayılan olarak, pencereler, kullanıcı tarafından her etkinleştirildiğinde zaman damgalarıyla güncellenen MRU (En Son Kullanılan) AltTab listesine göre sıralanır. Kararlı sıralama ise her pencerenin oluşturulduğunda aldığı benzersiz kimlik (ID) ile belirlenir."),
             itemFactory.newSwitch(),
             'winStableSequence'
         )
@@ -149,8 +149,8 @@ function getOptionList(mscOptions) {
 
     optionsList.push(
         itemFactory.getRowWidget(
-            _('Skip minimized'),
-            _('Exclude minimized windows from the switcher list'),
+            _('Küçültülenleri atla'),
+            _('Küçültülen pencereleri anahtar listesinde hariç tut.'),
             itemFactory.newSwitch(),
             'winSkipMinimized'
         )
@@ -158,7 +158,7 @@ function getOptionList(mscOptions) {
 
     optionsList.push(
         itemFactory.getRowWidget(
-            _('Custom Colors for Effects'),
+            _('Efektler için Özel Renkler'),
             null,
             null
         )
@@ -166,8 +166,8 @@ function getOptionList(mscOptions) {
 
     optionsList.push(
         itemFactory.getRowWidget(
-            _('Tint Color'),
-            _("Color for 'Custom Color Tint' action. Lighter color means weaker filter."),
+            _('Ton Rengi'),
+            _("'Özel Renk Tonu' eylemi için renk. Daha açık renk, daha zayıf filtre anlamına gelir."),
             itemFactory.newColorButton(),
             'customTintColor'
         )

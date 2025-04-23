@@ -88,7 +88,7 @@ class TreeviewPage extends Gtk.Box {
         });
 
         const expandButton = new Gtk.Button({
-            label: _('Expand all'),
+            label: _('Tümünü Genişlet'),
         });
 
         expandButton.connect('clicked', () => {
@@ -97,7 +97,7 @@ class TreeviewPage extends Gtk.Box {
         });
 
         const collapseButton = new Gtk.Button({
-            label: _('Collapse all'),
+            label: _('Tümünü Daralt'),
         });
         collapseButton.connect('clicked', () => {
             this.treeView.collapse_all();
@@ -109,7 +109,7 @@ class TreeviewPage extends Gtk.Box {
         context.add_class('destructive-action');
 
         this.showActiveBtn = new Gtk.ToggleButton({
-            label: _('Show active items only'),
+            label: _('Sadece etkin öğeleri göster'),
         });
 
         btnBox.append(this.resetButton);

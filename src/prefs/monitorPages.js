@@ -31,11 +31,11 @@ export function init(extension) {
     _ = extension.gettext.bind(extension);
     TriggerLabels = [
         _('Hot Corner'),
-        _('Primary Button'),
-        _('Secondary Button'),
-        _('Middle Button'),
-        _('Scroll Up'),
-        _('Scroll Down'),
+        _('Birincil Buton'),
+        _('İkincil Buton'),
+        _('Orta Buton'),
+        _('Yukarı Kaydır'),
+        _('Aşağı Kaydır'),
         _('Ctrl + Hot Corner'),
     ];
 
@@ -130,7 +130,7 @@ class MonitorPage extends Gtk.Box {
         context.add_class('heading');
 
         const resetBtn = new Gtk.Button({
-            tooltip_text: _('Disable all triggers and reset settings of this corner'),
+            tooltip_text: _('Bu köşenin tüm tetikleyicilerini devre dışı bırakın ve ayarlarını sıfırlayın.'),
             vexpand: false,
             hexpand: true,
             halign: Gtk.Align.END,
@@ -273,7 +273,7 @@ class CornerPage extends Gtk.Box {
                 valign: Gtk.Align.CENTER,
                 vexpand: false,
                 hexpand: false,
-                tooltip_text: _('If checked this trigger will only work when the Ctrl key is pressed'),
+                tooltip_text: _('Eğer işaretlenirse, bu tetikleyici yalnızca Ctrl tuşuna basıldığında çalışacaktır.'),
                 visible: true,
             });
 
@@ -286,7 +286,7 @@ class CornerPage extends Gtk.Box {
                     ctrlBtn.set_visible(true);
                     ctrlBtn.set_active(true);
                     ctrlBtn.set_sensitive(false);
-                    ctrlBtn.set_tooltip_text(_('This trigger only works when the Ctrl key is pressed'));
+                    ctrlBtn.set_tooltip_text(_('Bu tetikleyici yalnızca Ctrl tuşuna basıldığında çalışır.'));
                 } else {
                     ctrlBtn.set_active(false);
                     ctrlBtn.set_sensitive(false);
@@ -322,7 +322,7 @@ class CornerPage extends Gtk.Box {
                 valign: Gtk.Align.CENTER,
                 vexpand: false,
                 hexpand: false,
-                tooltip_text: _('Enable this trigger in fullscreen mode'),
+                tooltip_text: _('Bu tetikleyiciyi tam ekran modunda etkinleştir.'),
             });
 
             fsBtn.set_icon_name('view-fullscreen-symbolic');
@@ -385,7 +385,7 @@ class CornerPage extends Gtk.Box {
         });
         workspaceIndexSpinButton.set_adjustment(wsIndexAdjustment);
         const commandEntry = new Gtk.Entry({ hexpand: true });
-        commandEntry.set_placeholder_text(_('Enter command or choose app ID'));
+        commandEntry.set_placeholder_text(_('Komut girin veya uygulama kimliğini seçin.'));
         commandEntry.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY, 'edit-clear-symbolic');
         commandEntry.set_icon_activatable(Gtk.EntryIconPosition.SECONDARY, true);
         commandEntry.connect('icon-press', e => e.set_text(''));
@@ -468,7 +468,7 @@ class CornerPage extends Gtk.Box {
             const action = this._corner.get('action', trigger);
             let actionTitle;
             if (!actionDict[action]) {
-                actionTitle = _("Error: Stored action doesn't exist!!!");
+                actionTitle = _("Hata: Kaydedilen işlem mevcut değil!!!");
             } else {
                 actionTitle = actionDict[action].title;
                 const actBtnIconName = actionDict[action].icon;
@@ -532,7 +532,7 @@ class CornerPage extends Gtk.Box {
             margin_top: 20,
             margin_bottom: 8,
             halign: Gtk.Align.FILL,
-            tooltip_text: _("You can activate 'Make active corners/edges visible' option on 'Options' page to see the results of these settings."),
+            tooltip_text: _("Bu ayarların sonuçlarını görmek için 'Seçenekler' sayfasında 'Aktif köşe/kenarları görünür yap' seçeneğini etkinleştirebilirsiniz."),
         });
 
         const hImage = Gtk.Image.new_from_resource(`${this._iconPath}/${this._corner.top ? 'Top' : 'Bottom'}${this._corner.left ? 'Left' : 'Right'}HE.svg`);
@@ -543,9 +543,9 @@ class CornerPage extends Gtk.Box {
 
         const label = new Gtk.Label({
             wrap: true,
-            label: _('Pressure threshold and barrier sizes:\n(Enlarge the barrier size to convert the hot corner into a hot edge)'),
-            tooltip_text: `${_('Set horizontal and vertical size of the barrier that reacts to the mouse pointer pressure.')}\n${
-                _('The sizes are set in percentage of the screen width and height.')}`,
+            label: _('Baskı eşiği ve engel boyutları:\n(Hot köşeyi sıcak kenara dönüştürmek için engel boyutunu büyütün)'),
+            tooltip_text: `${_('Fare işaretçisi baskısına tepki veren engelin yatay ve dikey boyutlarını ayarlayın.')}\n${
+                _('Boyutlar, ekran genişliği ve yüksekliğinin yüzdesi olarak ayarlanır.')}`,
             halign: Gtk.Align.START,
             hexpand: false,
         });
@@ -569,7 +569,7 @@ class CornerPage extends Gtk.Box {
             digits: 0,
             draw_value: true,
             has_origin: true,
-            tooltip_text: _('Horizontal pressure barrier size in percentage of the monitor width'),
+            tooltip_text: _('Ekran genişliğinin yüzdesi olarak yatay basınç bariyeri boyutu.'),
             halign: Gtk.Align.FILL,
             hexpand: true,
         });
@@ -582,7 +582,7 @@ class CornerPage extends Gtk.Box {
             digits: 0,
             draw_value: true,
             has_origin: true,
-            tooltip_text: _('Vertical pressure barrier size in percentage of the monitor height'),
+            tooltip_text: _('Monitör yüksekliğinin yüzdesi cinsinden dikey basınç bariyeri boyutu'),
             halign: Gtk.Align.FILL,
             hexpand: true,
         });
@@ -631,14 +631,14 @@ class CornerPage extends Gtk.Box {
             margin_top: 20,
             margin_bottom: 8,
             halign: Gtk.Align.FILL,
-            tooltip_text: _("You can activate 'Make active corners/edges visible' option on 'Options' page to see the results of these settings."),
+            tooltip_text: _("Bu ayarların sonuçlarını görmek için 'Ayarlar' sayfasındaki 'Etkin köşeleri/kenarları görünür yap' seçeneğini etkinleştirebilirsiniz."),
         });
 
         const label = new Gtk.Label({
-            label: _('Expand clickable area - corner to edge:'),
+            label: _('Tıklanabilir alanı genişlet – köşeden kenara:'),
             tooltip_text:
-                          `${_('Expand the area reactive to mouse clicks and scrolls along the edge of the monitor in selected axis.')}\n${
-                              _('If an adjacent corner is set to expand along the same edge, each of them allocates a half of the edge')}`,
+                          `${_('Seçilen eksende, monitör kenarı boyunca fare tıklamaları ve kaydırmalarına tepki veren alanı genişlet.')}\n${
+                              _('Eğer bitişik bir köşe aynı kenar boyunca genişleyecek şekilde ayarlanmışsa, her biri kenarın yarısını kaplar.')}`,
             halign: Gtk.Align.START,
             hexpand: true,
         });
@@ -648,7 +648,7 @@ class CornerPage extends Gtk.Box {
             valign: Gtk.Align.CENTER,
             vexpand: false,
             hexpand: false,
-            tooltip_text: _('Expand horizonatally'),
+            tooltip_text: _('Yatay olarak genişlet'),
         });
 
         const hImage = Gtk.Image.new_from_resource(`${this._iconPath}/${this._corner.top ? 'Top' : 'Bottom'}${this._corner.left ? 'Left' : 'Right'}HE.svg`);
@@ -660,7 +660,7 @@ class CornerPage extends Gtk.Box {
             valign: Gtk.Align.CENTER,
             vexpand: false,
             hexpand: false,
-            tooltip_text: _('Expand vertically'),
+            tooltip_text: _('Dikey olarak genişlet'),
         });
 
         const vImage = Gtk.Image.new_from_resource(`${this._iconPath}/${this._corner.top ? 'Top' : 'Bottom'}${this._corner.left ? 'Left' : 'Right'}VE.svg`);
@@ -683,7 +683,7 @@ class CornerPage extends Gtk.Box {
 
     _chooseAppDialog() {
         const dialog = new Gtk.Dialog({
-            title: _('Choose Application'),
+            title: _('Uygulama Seç'),
             transient_for: this.get_root
                 ? this.get_root()
                 : this.get_toplevel(),

@@ -116,9 +116,9 @@ class CustomMenuPage extends TreeViewPage.TreeViewPage {
         });
 
         this._updateTitle();
-        this.lbl.set_tooltip_text(`${_('Check items you want to have in the Custom Menu action.')}\n${_('You can decide whether the action menu items will be in its section submenu or in the root of the menu by checking/unchecking the section item')}`);
-        this.resetButton.set_label(_('Deselect all'));
-        this.resetButton.set_tooltip_text(_('Remove all items from this menu'));
+        this.lbl.set_tooltip_text(`${_('Özel Menü eyleminde bulunmasını istediğiniz öğeleri işaretleyin.')}\n${_('Eylem menüsü öğelerinin, bölüm alt menüsünde mi yoksa menü kökünde mi olacağını, bölüm öğesini işaretleyerek veya işareti kaldırarak belirleyebilirsiniz.')}`);
+        this.resetButton.set_label(_('Tümünü Seçme'));
+        this.resetButton.set_tooltip_text(_('Bu menüden tüm öğeleri kaldır'));
         this.resetButton.connect('clicked', () => {
             this._resetMenu(true, mscVar);
         });
@@ -130,10 +130,10 @@ class CustomMenuPage extends TreeViewPage.TreeViewPage {
         this.setNewTreeviewModel();
 
         // Menu items
-        const actions     = new Gtk.TreeViewColumn({ title: _('Menu Item'), expand: true });
+        const actions     = new Gtk.TreeViewColumn({ title: _('Menü Öğesi'), expand: true });
         const nameRender  = new Gtk.CellRendererText();
 
-        const toggles      = new Gtk.TreeViewColumn({ title: _('Add to Menu') });
+        const toggles      = new Gtk.TreeViewColumn({ title: _('Menüye Ekle') });
         const toggleRender = new Gtk.CellRendererToggle({
             activatable: true,
             active: false,
@@ -197,7 +197,7 @@ class CustomMenuPage extends TreeViewPage.TreeViewPage {
     }
 
     _updateTitle() {
-        this.lbl.set_markup(`${_bold(_('Select items for Custom Menu')) + _bold(` ${this._menuIndex}`)}     ( ${this.menuItems.length} ${_('items')} )`);
+        this.lbl.set_markup(`${_bold(_('Özel Menü İçin Öğeleri Seç')) + _bold(` ${this._menuIndex}`)}     ( ${this.menuItems.length} ${_('items')} )`);
     }
 
     _resetMenu(writeSettings = true, mscVar) {

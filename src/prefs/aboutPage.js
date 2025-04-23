@@ -48,50 +48,55 @@ function getOptionList(mscOptions) {
     version = versionName && version ? `/${version}` : version;
     const versionStr = `${versionName}${version}`;
     optionList.push(itemFactory.getRowWidget(
-        _('Version'),
+        _('Sürüm'),
         null,
         itemFactory.newLabel(versionStr)
     ));
 
     optionList.push(itemFactory.getRowWidget(
-        _('Reset all options'),
-        _('Disable all triggers and reset all options to their default values'),
+        _('Tüm ayarları sıfırla'),
+        _('Tüm tetikleyicileri devre dışı bırakın ve tüm ayarları varsayılan değerlerine sıfırlayın'),
         itemFactory.newOptionsResetButton()
     ));
 
 
     optionList.push(itemFactory.getRowWidget(
-        _('Links')
+        _('Linkler')
     ));
 
     optionList.push(itemFactory.getRowWidget(
-        _('Homepage'),
-        _('Source code and more info about this extension'),
+        _('Ana Sayfa'),
+        _('Bu uzantının kaynak kodu ve daha fazla bilgisi'),
         itemFactory.newLinkButton('https://github.com/G-dH/custom-hot-corners-extended')
     ));
 
     optionList.push(itemFactory.getRowWidget(
-        _('Changelog'),
-        _("See what's changed."),
+        _('Değişiklik Günlüğü'),
+        _("Değişenlere göz atın."),
         itemFactory.newLinkButton('https://github.com/G-dH/custom-hot-corners-extended/blob/main/CHANGELOG.md')
     ));
 
     optionList.push(itemFactory.getRowWidget(
-        _('GNOME Extensions'),
-        _('Rate and comment the extension on GNOME Extensions site'),
+        _('GNOME Uzantıları'),
+        _('GNOME Uzantıları sitesinde uzantıyı puanlayın ve yorum yapın'),
         itemFactory.newLinkButton('https://extensions.gnome.org/extension/4167')
     ));
 
     optionList.push(itemFactory.getRowWidget(
-        _('Report a bug or suggest new feature'),
+        _('Bir hata bildirin veya yeni bir özellik önerin'),
         null,
         itemFactory.newLinkButton('https://github.com/G-dH/custom-hot-corners-extended/issues')
     ));
 
     optionList.push(itemFactory.getRowWidget(
-        _('Buy Me a Coffee'),
-        _('Enjoying this extension? Consider supporting it by buying me a coffee!'),
+        _('Bana Bir Kahve Ismarla'),
+        _('Bu uzantıyı beğendiniz mi? Bir kahve ısmarlıyarak destek olmayı düşünün!'),
         itemFactory.newLinkButton('https://buymeacoffee.com/georgdh')
+    ));
+    optionList.push(itemFactory.getRowWidget(
+        _('Çevirmen'),
+        _('Bu uzantıyı Türkçe diline çeriven erogluyusuf\'a teşekkürler!'),
+        itemFactory.newLinkButton('https://github.com/erogluyusuf')
     ));
 
     return optionList;

@@ -46,20 +46,20 @@ export const MenuButton = GObject.registerClass({ GTypeName: 'CHCEMenuButton' },
 
         this._menuItems = [];
 
-        const disableItem = new PopupMenu.PopupMenuItem(_('Disable all triggers'), false);
+        const disableItem = new PopupMenu.PopupMenuItem(_('Tüm tetikleyicileri devre dışı bırak'), false);
         disableItem.connect('activate', this._toggleDisable.bind(this));
         this._menuItems.push(disableItem);
 
-        const shiftItem = new PopupMenu.PopupMenuItem(_('Hot corner triggers require Shift key'), false);
+        const shiftItem = new PopupMenu.PopupMenuItem(_('Köşe tetikleyicileri Shift tuşunu gerektirir.'), false);
         shiftItem.connect('activate', this._toggleRequireShift.bind(this));
         this._menuItems.push(shiftItem);
 
-        const resetItem = new PopupMenu.PopupMenuItem(_('Update all triggers'), false);
+        const resetItem = new PopupMenu.PopupMenuItem(_('Tüm tetikleyicileri güncelle'), false);
         resetItem.connect('activate', this._reset.bind(this));
         this._menuItems.push(resetItem);
 
         this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
-        const openPrefs = new PopupMenu.PopupMenuItem(_('Settings'), false);
+        const openPrefs = new PopupMenu.PopupMenuItem(_('Ayarlar'), false);
         openPrefs.connect('activate', this._openPrefs.bind(this));
         this._menuItems.push(openPrefs);
 

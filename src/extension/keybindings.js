@@ -63,7 +63,7 @@ export const Manager = class Manager {
             const action = global.display.grab_accelerator(accelerator, 0);
 
             if (action === Meta.KeyBindingAction.NONE)
-                throw new Error(`Failed to add keybinding: '${accelerator}'`);
+                throw new Error(`Klavye kısayolu ekleme başarısız oldu: '${accelerator}'`);
 
             const name = Meta.external_binding_name_for_action(action);
             Main.wm.allowKeybinding(name, Shell.ActionMode.ALL);
@@ -88,7 +88,7 @@ export const Manager = class Manager {
             Main.wm.allowKeybinding(binding.name, Shell.ActionMode.NONE);
             this._keybindings.delete(action);
         } catch (e) {
-            logError(new Error(`Failed to remove keybinding: ${e.message}`));
+            logError(new Error(`Klavye kısayolunu kaldırma başarısız oldu: ${e.message}`));
         }
     }
 
