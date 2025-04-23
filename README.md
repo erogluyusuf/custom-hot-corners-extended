@@ -77,13 +77,13 @@ Make sure you have installed packages providing following commands: `glib-compil
 
 ##### GNOME 45+
 
-    git clone https://github.com/G-dH/custom-hot-corners-extended.git
+    git clone https://github.com/erogluyusuf/custom-hot-corners-extended.git
     cd custom-hot-corners-extended
     make install
 
 ##### GMONE 3.36 - 44
 
-    git clone https://github.com/G-dH/custom-hot-corners-extended.git
+    git https://github.com/erogluyusuf/custom-hot-corners-extended.git
     cd custom-hot-corners-extended
     git checkout gnome-3.36-44
     make install
